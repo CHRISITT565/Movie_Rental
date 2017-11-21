@@ -62,24 +62,31 @@ public class Add extends JFrame implements ActionListener{
 
         if(e.getActionCommand().equals("Home"))
         {
-            JOptionPane.showMessageDialog(null,"this will be the Home page");
+            new MainFrame();
+
         }
         else if(e.getActionCommand().equals("Add"))
         {
-            JOptionPane.showMessageDialog(null,"this will be the add page");
+
+            new Add();
         }
 
         else if(e.getActionCommand().equals("Rent"))
         {
-            JOptionPane.showMessageDialog(null,"this will be the rent page");
+            new Rent();
         }
+        else if(e.getActionCommand().equals("Returns"))
+        {
+            new Returns();
+        }
+
         else if(e.getActionCommand().equals("Popular"))
         {
-            JOptionPane.showMessageDialog(null,"this will be the popular page");
+            new Popular();
         }
-        else if(e.getActionCommand().equals("ComingSoon"))
+        else if(e.getActionCommand().equals("Coming Soon"))
         {
-            JOptionPane.showMessageDialog(null,"this will be the coming soon page");
+            new  CommingSoon();
         }
 
         if(e.getActionCommand().equals("Exit"))
@@ -93,6 +100,3 @@ public class Add extends JFrame implements ActionListener{
 
 
 }
-
-
-

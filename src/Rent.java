@@ -5,13 +5,13 @@ import java.util.*;
 import java.io.*;
 
 
-public class MainFrame extends JFrame implements ActionListener{
+public class Rent extends JFrame implements ActionListener{
 
 
 
 
 
-    public MainFrame() {
+    public Rent() {
         //set the frame default properties
         setTitle("Retro Style");
         setSize(500, 400);

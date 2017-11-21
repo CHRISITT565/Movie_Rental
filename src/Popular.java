@@ -4,16 +4,11 @@ import java.awt.event.*;
 import java.util.*;
 import java.io.*;
 
+public class Popular extends JFrame implements ActionListener{
 
-public class MainFrame extends JFrame implements ActionListener{
-
-
-
-
-
-    public MainFrame() {
+    public Popular() {
         //set the frame default properties
-        setTitle("Retro Style");
+        setTitle("Retro Style New Product");
         setSize(500, 400);
         setLocation(150, 250);
         JMenuBar jMenuBar = new JMenuBar();
