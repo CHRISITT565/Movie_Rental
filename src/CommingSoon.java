@@ -10,8 +10,17 @@ public class CommingSoon extends JFrame implements ActionListener{
 
     public CommingSoon ()
         {
+
+            //container Created
+            Container cPane = getContentPane();
+            cPane.setLayout(new FlowLayout());
+            Color mycolor = new Color(51, 204, 51);
+            cPane.setBackground(mycolor);
+            //register 'Exit upon closing' as close operation
+            setDefaultCloseOperation(EXIT_ON_CLOSE);
+
             //set the frame default properties
-            setTitle("Retro Style New Product");
+            setTitle("Retro Style Comming Soon");
             setSize(500, 400);
             setLocation(150, 250);
             JMenuBar jMenuBar = new JMenuBar();
@@ -44,18 +53,25 @@ public class CommingSoon extends JFrame implements ActionListener{
             comingSoon.addActionListener(this);
             exit.addActionListener(this);
 
+            JButton gameTrailer = new JButton("Video Game");
+            JButton movieTrailer= new JButton("Movie");
+
+            gameTrailer.addActionListener(this);
+            movieTrailer.addActionListener(this);
+
+
+            gameTrailer.setBounds(200,200,80,50);
+
+            movieTrailer.setBounds(380,200,80,50);
+
+            cPane.add(gameTrailer);
+            cPane.add(movieTrailer);
 
             setResizable(false);
 
 
 
-            //container Created
-            Container cPane = getContentPane();
-            cPane.setLayout(new FlowLayout());
-            Color mycolor = new Color(51, 204, 51);
-            cPane.setBackground(mycolor);
-            //register 'Exit upon closing' as close operation
-            setDefaultCloseOperation(EXIT_ON_CLOSE);
+
 
         }
 
@@ -66,15 +82,7 @@ public class CommingSoon extends JFrame implements ActionListener{
             myFrame.setVisible(true);
             //Buttons Created and defigned
 
-        JButton AddGame = new JButton("Video Game");
-        JButton AddMovie = new JButton("Movie");
 
-        AddGame.setBounds(200,200,80,50);
-
-        AddMovie.setBounds(380,200,80,50);
-
-        myFrame.add(AddGame);
-        myFrame.add(AddMovie);
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -106,6 +114,15 @@ public class CommingSoon extends JFrame implements ActionListener{
         else if(e.getActionCommand().equals("Coming Soon"))
         {
             new  CommingSoon();
+        }
+        else if(e.getActionCommand().equals("Video Game"))
+        {
+            new CSGV();
+        }
+
+        else if(e.getActionCommand().equals("Movie"))
+        {
+            new CSMV();
         }
 
         if(e.getActionCommand().equals("Exit"))
