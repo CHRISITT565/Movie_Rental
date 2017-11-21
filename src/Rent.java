@@ -13,7 +13,7 @@ public class Rent extends JFrame implements ActionListener{
 
     public Rent() {
         //set the frame default properties
-        setTitle("Retro Style");
+        setTitle("Retro Style Rent");
         setSize(500, 400);
         setLocation(150, 250);
         JMenuBar jMenuBar = new JMenuBar();
@@ -43,7 +43,7 @@ public class Rent extends JFrame implements ActionListener{
         comingSoon.addActionListener(this);
         exit.addActionListener(this);
 
-
+        setResizable(false);
 
 
 

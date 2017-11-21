@@ -31,6 +31,8 @@ public class Add extends JFrame implements ActionListener{
         list.add(comingSoon);
         list.add(exit);
 
+
+
         home.addActionListener(this);
         add.addActionListener(this);
         rent.addActionListener(this);
@@ -39,7 +41,7 @@ public class Add extends JFrame implements ActionListener{
         exit.addActionListener(this);
 
 
-
+        setResizable(false);
 
 
         Container cPane = getContentPane();
@@ -56,6 +58,17 @@ public class Add extends JFrame implements ActionListener{
         MainFrame myFrame = new MainFrame();
 
         myFrame.setVisible(true);
+        //Buttons Created and defigned
+
+        JButton AddGame = new JButton("Video Game");
+        JButton AddMovie = new JButton("Movie");
+
+        AddGame.setBounds(200,200,80,50);
+
+        AddMovie.setBounds(380,200,80,50);
+
+        myFrame.add(AddGame);
+        myFrame.add(AddMovie);
     }
 
     public void actionPerformed(ActionEvent e) {

@@ -8,7 +8,7 @@ public class Popular extends JFrame implements ActionListener{
 
     public Popular() {
         //set the frame default properties
-        setTitle("Retro Style New Product");
+        setTitle("Retro Style Most Popular");
         setSize(500, 400);
         setLocation(150, 250);
         JMenuBar jMenuBar = new JMenuBar();
@@ -39,7 +39,7 @@ public class Popular extends JFrame implements ActionListener{
         exit.addActionListener(this);
 
 
-
+        setResizable(false);
 
 
         Container cPane = getContentPane();

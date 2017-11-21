@@ -8,7 +8,7 @@ public class Returns extends JFrame implements ActionListener{
 
     public Returns() {
         //set the frame default properties
-        setTitle("Retro Style New Product");
+        setTitle("Retro Style Retuns");
         setSize(500, 400);
         setLocation(150, 250);
         JMenuBar jMenuBar = new JMenuBar();
@@ -40,7 +40,7 @@ public class Returns extends JFrame implements ActionListener{
 
 
 
-
+        setResizable(false);
 
         Container cPane = getContentPane();
         cPane.setLayout(new FlowLayout());

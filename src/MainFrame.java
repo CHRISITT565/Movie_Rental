@@ -16,6 +16,8 @@ public class MainFrame extends JFrame implements ActionListener{
         setTitle("Retro Style");
         setSize(500, 400);
         setLocation(150, 250);
+
+        //This is My Menu for the frames
         JMenuBar jMenuBar = new JMenuBar();
         setJMenuBar(jMenuBar);
 
@@ -36,6 +38,8 @@ public class MainFrame extends JFrame implements ActionListener{
         list.add(comingSoon);
         list.add(exit);
 
+        JTextArea intro = new JTextArea("Welcome To Retro Style Your Online Movie and Video Game renting site");
+        //here im adding action listeners so as my menue and its items can be interactive
         home.addActionListener(this);
         add.addActionListener(this);
         rent.addActionListener(this);
@@ -44,7 +48,7 @@ public class MainFrame extends JFrame implements ActionListener{
         exit.addActionListener(this);
 
 
-
+        setResizable(false);
 
 
         Container cPane = getContentPane();
