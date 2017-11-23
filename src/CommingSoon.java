@@ -144,7 +144,7 @@ public class CommingSoon extends JFrame implements ActionListener{
         JWebBrowser webBrowser = new JWebBrowser();
         webBrowserPanel.add(webBrowser, BorderLayout.CENTER);
         webBrowser.setBarsVisible(false);
-        webBrowser.navigate("\"https://www.youtube.com/watch?v=zTF913m8jVc");
+        webBrowser.navigate("https://www.youtube.com/watch?v=zTF913m8jVc");
         return webBrowserPanel;
     }
 
