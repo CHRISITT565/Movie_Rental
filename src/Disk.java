@@ -4,6 +4,7 @@ public abstract class Disk implements Rentable{
         private String Rating;
         private char Condition;
         private String Genre;
+        private int timesRented;
 
     public String getRating() {
         return Rating;
@@ -29,7 +30,14 @@ public abstract class Disk implements Rentable{
         Genre = genre;
     }
 
-    @Override
+    public int getTimesRented() {
+        return timesRented;
+    }
+
+    public void setTimesRented(int timesRented) {
+        this.timesRented = timesRented;
+    }
+
     public double calRentFee() {
         return 0;
     }
