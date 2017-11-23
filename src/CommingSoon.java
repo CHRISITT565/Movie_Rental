@@ -1,12 +1,19 @@
+import chrriis.dj.nativeswing.swtimpl.NativeInterface;
+import chrriis.dj.nativeswing.swtimpl.components.JWebBrowser;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
 import java.io.*;
 
+//import chrriis.dj.nativeswing.swtimpl.NativeInterface;
+//import chrriis.dj.nativeswing.swtimpl.components.JWebBrowser;
+
 public class CommingSoon extends JFrame implements ActionListener{
 
  JButton gameTrailer;
+ JButton movieTrailer;
 
     public CommingSoon ()
         {
@@ -55,13 +62,54 @@ public class CommingSoon extends JFrame implements ActionListener{
 
              gameTrailer = new JButton("Video Game");
 
-            JButton movieTrailer= new JButton("Movie");
+            movieTrailer= new JButton("Movie");
+
+            movieTrailer.addActionListener(new ActionListener() {
+
+                public void actionPerformed(ActionEvent e) {
+
+                    NativeInterface.open();
+
+                    JFrame frame = new JFrame("Movie Trailer Viewer");
+                    frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                    frame.getContentPane().add(getBrowserPanelM(), BorderLayout.CENTER);
+                    frame.setSize(800, 600);
+                    frame.setLocationByPlatform(true);
+                    frame.setVisible(true);
+
+
+                }
+            });
 
             gameTrailer.addActionListener(new ActionListener() {
-                @Override
+
                 public void actionPerformed(ActionEvent e) {
-                   JOptionPane.showMessageDialog(null,"test button");
+
+                   //CSGV.main(new String[]{});
                     //new CSGV();
+
+                    NativeInterface.open();
+
+                            JFrame frame = new JFrame("Game Trailer Viewer");
+                            frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+                            frame.getContentPane().add(getBrowserPanel(), BorderLayout.CENTER);
+                            frame.setSize(800, 600);
+                            frame.setLocationByPlatform(true);
+                            frame.setVisible(true);
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    //c.main(null);
                 }
             });
             movieTrailer.addActionListener(this);
@@ -81,6 +129,25 @@ public class CommingSoon extends JFrame implements ActionListener{
 
 
         }
+
+    public static JPanel getBrowserPanel() {
+        JPanel webBrowserPanel = new JPanel(new BorderLayout());
+        JWebBrowser webBrowser = new JWebBrowser();
+        webBrowserPanel.add(webBrowser, BorderLayout.CENTER);
+        webBrowser.setBarsVisible(false);
+        webBrowser.navigate("https://www.youtube.com/watch?v=RGj0JApvb5k");
+        return webBrowserPanel;
+    }
+
+    public static JPanel getBrowserPanelM() {
+        JPanel webBrowserPanel = new JPanel(new BorderLayout());
+        JWebBrowser webBrowser = new JWebBrowser();
+        webBrowserPanel.add(webBrowser, BorderLayout.CENTER);
+        webBrowser.setBarsVisible(false);
+        webBrowser.navigate("\"https://www.youtube.com/watch?v=zTF913m8jVc");
+        return webBrowserPanel;
+    }
+
 
 
     public static void main(String[] args) {
@@ -121,16 +188,6 @@ public class CommingSoon extends JFrame implements ActionListener{
         else if(e.getActionCommand().equals("Coming Soon"))
         {
             new  CommingSoon();
-        }
-      //  else if(e.getActionCommand().equals("Video Game"))
-        else if (e.getSource()== gameTrailer)
-        {
-            //new CSGV();
-        }
-
-        else if(e.getActionCommand().equals("Movie"))
-        {
-            new CSMV();
         }
 
         if(e.getActionCommand().equals("Exit"))
