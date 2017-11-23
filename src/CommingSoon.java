@@ -6,7 +6,7 @@ import java.io.*;
 
 public class CommingSoon extends JFrame implements ActionListener{
 
-
+ JButton gameTrailer;
 
     public CommingSoon ()
         {
@@ -53,10 +53,17 @@ public class CommingSoon extends JFrame implements ActionListener{
             comingSoon.addActionListener(this);
             exit.addActionListener(this);
 
-            JButton gameTrailer = new JButton("Video Game");
+             gameTrailer = new JButton("Video Game");
+
             JButton movieTrailer= new JButton("Movie");
 
-            gameTrailer.addActionListener(this);
+            gameTrailer.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                   JOptionPane.showMessageDialog(null,"test button");
+                    //new CSGV();
+                }
+            });
             movieTrailer.addActionListener(this);
 
 
@@ -115,9 +122,10 @@ public class CommingSoon extends JFrame implements ActionListener{
         {
             new  CommingSoon();
         }
-        else if(e.getActionCommand().equals("Video Game"))
+      //  else if(e.getActionCommand().equals("Video Game"))
+        else if (e.getSource()== gameTrailer)
         {
-            new CSGV();
+            //new CSGV();
         }
 
         else if(e.getActionCommand().equals("Movie"))

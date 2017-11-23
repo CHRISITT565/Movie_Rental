@@ -11,7 +11,8 @@ import chrriis.dj.nativeswing.swtimpl.components.JWebBrowser;
 public class CSGV {
 
 
-        public static void main(String[] args) {
+       // public static void main(String[] args) {
+    public  CSGV(){
             NativeInterface.open();
             SwingUtilities.invokeLater(new Runnable() {
                 public void run() {
