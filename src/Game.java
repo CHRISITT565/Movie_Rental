@@ -29,6 +29,11 @@ public class Game extends Disk{
         Setting = setting;
     }
 
+    public String toString()
+    {
+        return getName() + getGenre()+ getSetting() + getStyle() + super.toString();
+    }
+
     @Override
     public void setRentFee() {
 

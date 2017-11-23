@@ -28,6 +28,11 @@ public class Movie extends Disk {
         Bonus = bonus;
     }
 
+    public String toString()
+    {
+        return getName() + getGenre()+ getBonus() + super.toString();
+    }
+
     @Override
     public void setRentFee() {
 

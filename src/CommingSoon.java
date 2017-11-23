@@ -77,7 +77,7 @@ public class CommingSoon extends JFrame implements ActionListener{
 
 
     public static void main(String[] args) {
-        MainFrame myFrame = new MainFrame();
+        CommingSoon myFrame = new CommingSoon();
 
             myFrame.setVisible(true);
             //Buttons Created and defigned

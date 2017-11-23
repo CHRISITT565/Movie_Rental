@@ -2,8 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import java.util.*;
-import java.io.*;
-import chrriis.common.*;
+import chrriis.*;
 import chrriis.dj.nativeswing.swtimpl.NativeInterface;
 import chrriis.dj.nativeswing.swtimpl.components.JWebBrowser;
 
@@ -11,6 +10,8 @@ public class CSMV {
 
 
     public static void main(String[] args) {
+
+
         NativeInterface.open();
         SwingUtilities.invokeLater(new Runnable() {
             public void run() {

@@ -7,43 +7,7 @@ import java.io.*;
 public class Add extends JFrame implements ActionListener{
 
     public Add() {
-        //set the frame default properties
-        setTitle("Retro Style New Product");
-        setSize(500, 400);
-        setLocation(150, 250);
-        JMenuBar jMenuBar = new JMenuBar();
-        setJMenuBar(jMenuBar);
-
-        JMenu list = new JMenu("Menu");
-        jMenuBar.add(list);
-
-        JMenuItem home = new JMenuItem("Home");
-        JMenuItem add = new JMenuItem("Add");
-        JMenuItem rent = new JMenuItem("Rent");
-        JMenuItem popular = new JMenuItem("Popular");
-        JMenuItem comingSoon = new JMenuItem("Coming Soon");
-        JMenuItem exit = new JMenuItem("Exit");
-
-        list.add(home);
-        list.add(add);
-        list.add(rent);
-        list.add(popular);
-        list.add(comingSoon);
-        list.add(exit);
-
-
-
-        home.addActionListener(this);
-        add.addActionListener(this);
-        rent.addActionListener(this);
-        popular.addActionListener(this);
-        comingSoon.addActionListener(this);
-        exit.addActionListener(this);
-
-
-        setResizable(false);
-
-
+        //container Created
         Container cPane = getContentPane();
         cPane.setLayout(new FlowLayout());
         Color mycolor = new Color(51, 204, 51);
@@ -51,24 +15,70 @@ public class Add extends JFrame implements ActionListener{
         //register 'Exit upon closing' as close operation
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+        //set the frame default properties
+        setTitle("Retro Style Comming Soon");
+        setSize(500, 400);
+        setLocation(150, 250);
+        JMenuBar jMenuBar = new JMenuBar();
+        setJMenuBar(jMenuBar);
+        //Menu added and action Liseners
+        JMenu list = new JMenu("Menu");
+        jMenuBar.add(list);
+
+        JMenuItem home = new JMenuItem("Home");
+        JMenuItem add = new JMenuItem("Add");
+        JMenuItem rent = new JMenuItem("Rent");
+        JMenuItem returns = new JMenuItem("Returns");
+        JMenuItem popular = new JMenuItem("Popular");
+        JMenuItem comingSoon = new JMenuItem("Coming Soon");
+        JMenuItem exit = new JMenuItem("Exit");
+
+        list.add(home);
+        list.add(add);
+        list.add(rent);
+        list.add(returns);
+        list.add(popular);
+        list.add(comingSoon);
+        list.add(exit);
+
+        home.addActionListener(this);
+        add.addActionListener(this);
+        rent.addActionListener(this);
+        returns.addActionListener(this);
+        popular.addActionListener(this);
+        comingSoon.addActionListener(this);
+        exit.addActionListener(this);
+
+        JButton gameTrailer = new JButton("Video Game");
+        JButton movieTrailer= new JButton("Movie");
+
+        gameTrailer.addActionListener(this);
+        movieTrailer.addActionListener(this);
+
+
+        gameTrailer.setBounds(200,200,80,50);
+
+        movieTrailer.setBounds(380,200,80,50);
+
+        cPane.add(gameTrailer);
+        cPane.add(movieTrailer);
+
+        setResizable(false);
+
+
+
+
+
     }
 
 
     public static void main(String[] args) {
-        MainFrame myFrame = new MainFrame();
+        Add myFrame = new Add();
 
         myFrame.setVisible(true);
         //Buttons Created and defigned
 
-        JButton AddGame = new JButton("Video Game");
-        JButton AddMovie = new JButton("Movie");
 
-        AddGame.setBounds(200,200,80,50);
-
-        AddMovie.setBounds(380,200,80,50);
-
-        myFrame.add(AddGame);
-        myFrame.add(AddMovie);
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -101,6 +111,15 @@ public class Add extends JFrame implements ActionListener{
         {
             new  CommingSoon();
         }
+        else if(e.getActionCommand().equals("Video Game"))
+        {
+           VideoGameMaker();
+        }
+
+        else if(e.getActionCommand().equals("Movie"))
+        {
+            MovieMaker();
+        }
 
         if(e.getActionCommand().equals("Exit"))
         {
@@ -109,6 +128,24 @@ public class Add extends JFrame implements ActionListener{
 
 
     }
+
+    public String MovieMaker(){
+        Movie m = new Movie();
+        JOptionPane.showInputDialog("");
+
+        //return JOptionPane.showMessageDialog(null,m.toString());
+        return "hi";
+    }
+
+
+    public String VideoGameMaker(){
+       Game g = new Game();
+        JOptionPane.showInputDialog("");
+
+        //return JOptionPane.showMessageDialog(null,g.toString());
+        return "hi";
+    }
+
 
 
 

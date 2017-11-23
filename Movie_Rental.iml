@@ -7,6 +7,27 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="DJNativeSwing-SWT-1-0-2" level="project" />
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://I:/java project/DJNativeSwing-SWT-1-0-2/DJNativeSwing.jar!/" />
+          <root url="jar://I:/java project/DJNativeSwing-SWT-1-0-2/DJNativeSwing-SWTDemo.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://I:/java project/DJNativeSwing-SWT-1-0-2/DJNativeSwing-SWTDemo.jar!/src" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" exported="">
+      <library>
+        <CLASSES>
+          <root url="jar://I:/java project/DJNativeSwing-SWT-1-0-2/DJNativeSwing-SWT.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="DJNativeSwing-SWT" level="project" />
   </component>
 </module>
