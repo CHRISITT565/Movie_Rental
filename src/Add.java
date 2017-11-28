@@ -1,8 +1,16 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+
 
 public class Add extends JFrame implements ActionListener{
+
+    ArrayList<Game> gameStock;
+   ArrayList<Movie> movieStock;
 
     public Add() {
         //container Created
@@ -76,8 +84,8 @@ public class Add extends JFrame implements ActionListener{
         setResizable(false);
 
 
-        Game[] gameStock = new Game[15];
-        Movie[] movieStock= new Movie[15];
+        gameStock = new ArrayList<>();
+        movieStock= new ArrayList<>();
 
 
 
@@ -134,9 +142,9 @@ public class Add extends JFrame implements ActionListener{
 
     }
 
-    public String MovieMaker(){
+    public void MovieMaker(){
 
-        movieStock[];
+
         Movie m = new Movie();
         m.setName(JOptionPane.showInputDialog(""));
         m.setLength(Double.parseDouble(JOptionPane.showInputDialog("")));
@@ -148,13 +156,23 @@ public class Add extends JFrame implements ActionListener{
         m.setRentFee();
 
         //return JOptionPane.showMessageDialog(null,m.toString());
-        return m.toString();
+        //return m.toString();
 
         movieStock.add(m);
+
+        try{
+            saveMovie();
+            JOptionPane.showMessageDialog(null,"Data saved successfully");
+        } // try
+        catch (IOException f){
+            JOptionPane.showMessageDialog(null,"Not able to save the file:\n"+
+                    "Check the console printout for clues to why ");
+            f.printStackTrace();
+        }// catch
     }
 
 
-    public String VideoGameMaker(){
+    public void VideoGameMaker(){
        Game g = new Game();
         g.setName(JOptionPane.showInputDialog(""));
         g.setSetting(JOptionPane.showInputDialog(""));
@@ -166,7 +184,33 @@ public class Add extends JFrame implements ActionListener{
         g.setRentFee();
 
         //return JOptionPane.showMessageDialog(null,g.toString());
-        return g.toString();
+        //return g.toString();
+
+        gameStock.add(g);
+
+        try{
+            saveGames();
+            JOptionPane.showMessageDialog(null,"Data saved successfully");
+        } // try
+        catch (IOException f){
+            JOptionPane.showMessageDialog(null,"Not able to save the file:\n"+
+                    "Check the console printout for clues to why ");
+            f.printStackTrace();
+        }// catch
+    }
+
+    public void saveGames() throws IOException {
+        ObjectOutputStream os;
+        os = new ObjectOutputStream(new FileOutputStream("Gmaes.dat"));
+        os.writeObject(gameStock);
+        os.close();
+    }
+
+    public void saveMovie() throws IOException {
+        ObjectOutputStream os;
+        os = new ObjectOutputStream(new FileOutputStream("Movies.dat"));
+        os.writeObject(movieStock);
+        os.close();
     }
 
 
