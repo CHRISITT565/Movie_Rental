@@ -2,9 +2,32 @@ public abstract class Disk implements Rentable{
 
 
         private String Rating;
-        private char Condition;
+        private String Condition;
         private String Genre;
         private int timesRented;
+        private int noOfdays;
+
+    public Disk(String rating, String condition, String genre, int timesRented, int noOfdays) {
+        Rating = rating;
+        Condition = condition;
+        Genre = genre;
+        this.timesRented = timesRented;
+        this.noOfdays = noOfdays;
+    }
+
+
+    public Disk()
+    {
+        this("no Rating","standered","null",0,0);
+    }
+
+    public int getNoOfdays() {
+        return noOfdays;
+    }
+
+    public void setNoOfdays(int noOfdays) {
+        this.noOfdays = noOfdays;
+    }
 
     public String getRating() {
         return Rating;
@@ -14,11 +37,11 @@ public abstract class Disk implements Rentable{
         Rating = rating;
     }
 
-    public char getCondition() {
+    public String getCondition() {
         return Condition;
     }
 
-    public void setCondition(char condition) {
+    public void setCondition(String condition) {
         Condition = condition;
     }
 
@@ -39,6 +62,11 @@ public abstract class Disk implements Rentable{
     }
 
     public double calRentFee() {
-        return 0;
+        return setRentFee() + noOfdays;
+    }
+
+    public  String toString()
+    {
+        return "Condition " + getCondition() + " Rating " + Rating + "Genre " + getGenre();
     }
 }

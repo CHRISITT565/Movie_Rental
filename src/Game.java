@@ -4,6 +4,15 @@ public class Game extends Disk{
     private String Style;
     private  String Setting;
 
+    public Game(String name, String style, String setting) {
+        Name = name;
+        Style = style;
+        Setting = setting;
+    }
+
+    public Game() {
+        this("null","Unknown","Null");
+    }
 
     public String getName() {
         return Name;

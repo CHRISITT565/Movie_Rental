@@ -12,7 +12,12 @@ public class Rent extends JFrame implements ActionListener{
 
 
     public Rent() {
-        //set the frame default properties
+        Container cPane = getContentPane();
+        cPane.setLayout(new FlowLayout());
+        Color mycolor = new Color(51, 204, 51);
+        cPane.setBackground(mycolor);
+        //register 'Exit upon closing' as close operation
+        setDefaultCloseOperation(EXIT_ON_CLOSE);//set the frame default properties
         setTitle("Retro Style Rent");
         setSize(500, 400);
         setLocation(150, 250);
@@ -43,16 +48,37 @@ public class Rent extends JFrame implements ActionListener{
         comingSoon.addActionListener(this);
         exit.addActionListener(this);
 
+        JButton gameRent = new JButton("Video Game");
+        JButton movieRent= new JButton("Movie");
+
+        gameRent.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+
+            }
+        });
+        movieRent.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+
+            }
+        });
+
+
+        gameRent.setBounds(200,200,80,50);
+
+        movieRent.setBounds(380,200,80,50);
+
+        cPane.add(gameRent);
+        cPane.add(movieRent);
+
         setResizable(false);
 
 
 
-        Container cPane = getContentPane();
-        cPane.setLayout(new FlowLayout());
-        Color mycolor = new Color(51, 204, 51);
-        cPane.setBackground(mycolor);
-        //register 'Exit upon closing' as close operation
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
 
     }
 

@@ -4,6 +4,18 @@ public class Movie extends Disk {
     private Double Length;
     private Boolean Bonus;
 
+
+    public Movie(String name, Double length, Boolean bonus) {
+        Name = name;
+        Length = length;
+        Bonus = bonus;
+    }
+
+    public Movie()
+    {
+        this("null", 60.0, true);
+    }
+
     public String getName() {
         return Name;
     }
@@ -35,6 +47,8 @@ public class Movie extends Disk {
 
     @Override
     public void setRentFee() {
+
+
 
     }
 }

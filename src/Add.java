@@ -1,8 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import java.util.*;
-import java.io.*;
 
 public class Add extends JFrame implements ActionListener{
 
@@ -49,21 +47,37 @@ public class Add extends JFrame implements ActionListener{
         comingSoon.addActionListener(this);
         exit.addActionListener(this);
 
-        JButton gameTrailer = new JButton("Video Game");
-        JButton movieTrailer= new JButton("Movie");
+        JButton gameAdd = new JButton("Video Game");
+        JButton movieAdd= new JButton("Movie");
 
-        gameTrailer.addActionListener(this);
-        movieTrailer.addActionListener(this);
+        gameAdd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                VideoGameMaker();
+
+            }
+        });
+        movieAdd.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                MovieMaker();
+
+            }
+        });
 
 
-        gameTrailer.setBounds(200,200,80,50);
+        gameAdd.setBounds(200,200,80,50);
 
-        movieTrailer.setBounds(380,200,80,50);
+        movieAdd.setBounds(380,200,80,50);
 
-        cPane.add(gameTrailer);
-        cPane.add(movieTrailer);
+        cPane.add(gameAdd);
+        cPane.add(movieAdd);
 
         setResizable(false);
+
+
+        Game[] gameStock = new Game[15];
+        Movie[] movieStock= new Movie[15];
 
 
 
@@ -111,15 +125,6 @@ public class Add extends JFrame implements ActionListener{
         {
             new  CommingSoon();
         }
-        else if(e.getActionCommand().equals("Video Game"))
-        {
-           VideoGameMaker();
-        }
-
-        else if(e.getActionCommand().equals("Movie"))
-        {
-            MovieMaker();
-        }
 
         if(e.getActionCommand().equals("Exit"))
         {
@@ -130,20 +135,38 @@ public class Add extends JFrame implements ActionListener{
     }
 
     public String MovieMaker(){
+
+        movieStock[];
         Movie m = new Movie();
-        JOptionPane.showInputDialog("");
+        m.setName(JOptionPane.showInputDialog(""));
+        m.setLength(Double.parseDouble(JOptionPane.showInputDialog("")));
+        m.setBonus(Boolean.parseBoolean(JOptionPane.showInputDialog("")));
+        m.setGenre(JOptionPane.showInputDialog(""));
+        m.setCondition(JOptionPane.showInputDialog(""));
+        m.setRating(JOptionPane.showInputDialog(""));
+        m.setTimesRented(0);
+        m.setRentFee();
 
         //return JOptionPane.showMessageDialog(null,m.toString());
-        return "hi";
+        return m.toString();
+
+        movieStock.add(m);
     }
 
 
     public String VideoGameMaker(){
        Game g = new Game();
-        JOptionPane.showInputDialog("");
+        g.setName(JOptionPane.showInputDialog(""));
+        g.setSetting(JOptionPane.showInputDialog(""));
+        g.setStyle(JOptionPane.showInputDialog(""));
+        g.setGenre(JOptionPane.showInputDialog(""));
+        g.setCondition(JOptionPane.showInputDialog(""));
+        g.setRating(JOptionPane.showInputDialog(""));
+        g.setTimesRented(0);
+        g.setRentFee();
 
         //return JOptionPane.showMessageDialog(null,g.toString());
-        return "hi";
+        return g.toString();
     }
 
 
