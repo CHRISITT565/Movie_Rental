@@ -76,7 +76,7 @@ public class MainFrame extends JFrame implements ActionListener{
         }
         else if(e.getActionCommand().equals("Add"))
         {
-
+            JOptionPane.showMessageDialog(null, "test");
             new Add();
         }
 
