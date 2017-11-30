@@ -117,7 +117,7 @@ public class Rent extends JFrame implements ActionListener{
             public void itemStateChanged(ItemEvent e) {
                 if(e.getStateChange() == ItemEvent.SELECTED){
                     JComboBox localCombo = (JComboBox)e.getSource();
-                   
+
             }
         }
         });

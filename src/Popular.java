@@ -6,6 +6,11 @@ import java.io.*;
 
 public class Popular extends JFrame implements ActionListener{
 
+    ArrayList<Disk> popular = new ArrayList<>();
+
+    JComboBox Favourite = new JComboBox();
+    JTextArea Details = new JTextArea();
+
     public Popular() {
         //set the frame default properties
         setTitle("Retro Style Most Popular");
