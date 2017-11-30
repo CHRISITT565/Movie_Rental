@@ -91,7 +91,7 @@ public class Rent extends JFrame implements ActionListener{
                 DaysRented();
                 UpdateData();
 
-                RentStock();
+
 
             }
         });
@@ -115,12 +115,21 @@ public class Rent extends JFrame implements ActionListener{
         Stock.addItemListener(new ItemListener() {
             @Override
             public void itemStateChanged(ItemEvent e) {
-                if(e.getStateChange() == ItemEvent.SELECTED){
-                    JComboBox localCombo = (JComboBox)e.getSource();
+                String selected = (String) Stock.getSelectedItem();
+
+                JOptionPane.showMessageDialog(null,selected);
+
+                for(Game g: gameStock){
+                    if (selected.equals( g.getName()))
+                    {
+                        JOptionPane.showMessageDialog(null, g.toString());
+                    }
+
+                }
 
             }
-        }
         });
+
 
 
 
