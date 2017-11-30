@@ -1,4 +1,6 @@
-public class Game extends Disk{
+import java.io.Serializable;
+
+public class Game extends Disk implements Serializable {
 
     private String Name;
     private String Style;
@@ -44,7 +46,32 @@ public class Game extends Disk{
     }
 
     @Override
-    public void setRentFee() {
+    public Double setRentFee() {
 
+        double rent= 0.0f;
+
+        if(Style.equals("FPS"))
+        {
+            rent = 6.00f;
+        }
+
+        else if (Style.equals("RPG"))
+        {
+            rent = 6.50f;
+
+        }
+
+        else if (Style.equals("Puzzle"))
+        {
+            rent = 4.00f;
+        }
+
+        else if(Style.equals("Platform"))
+        {
+            rent = 4.50f;
+        }
+
+
+        return rent;
     }
 }

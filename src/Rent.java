@@ -7,8 +7,11 @@ import java.io.*;
 
 public class Rent extends JFrame implements ActionListener{
 
-
-
+    ArrayList<Game> gameStock;
+    ArrayList<Movie> movieStock;
+    ArrayList<Movie> rentedMovie;
+    ArrayList<Game> rentedGames;
+    JComboBox Stock = new JComboBox();
 
 
     public Rent() {
@@ -16,7 +19,7 @@ public class Rent extends JFrame implements ActionListener{
         cPane.setLayout(new FlowLayout());
         Color mycolor = new Color(51, 204, 51);
         cPane.setBackground(mycolor);
-        //register 'Exit upon closing' as close operation
+
         setDefaultCloseOperation(EXIT_ON_CLOSE);//set the frame default properties
         setTitle("Retro Style Rent");
         setSize(500, 400);
@@ -55,14 +58,17 @@ public class Rent extends JFrame implements ActionListener{
             @Override
             public void actionPerformed(ActionEvent e) {
 
-
+                openGameFile();
+                Stock.setModel(new DefaultComboBoxModel(gameStock.toArray()));
             }
         });
         movieRent.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
+                openMovieFile();
 
+                Stock.setModel(new DefaultComboBoxModel(movieStock.toArray()));
             }
         });
 
@@ -74,6 +80,14 @@ public class Rent extends JFrame implements ActionListener{
         cPane.add(gameRent);
         cPane.add(movieRent);
 
+
+
+        Stock.setLocation(200,300);
+
+        Stock.setSize(200,50);
+
+        cPane.add(Stock);
+
         setResizable(false);
 
 
@@ -84,7 +98,7 @@ public class Rent extends JFrame implements ActionListener{
 
 
     public static void main(String[] args) {
-        MainFrame myFrame = new MainFrame();
+       Rent myFrame = new Rent();
 
         myFrame.setVisible(true);
     }
@@ -128,6 +142,59 @@ public class Rent extends JFrame implements ActionListener{
 
     }
 
+    public void openMovieFile() {
+        try {
+            ObjectInputStream is;
+            is = new ObjectInputStream(new FileInputStream("Movies.dat"));
+            movieStock = (ArrayList<Movie>) is.readObject(); // CHANGED
+            is.close();
+        } catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(null, "FileNotFound: didn't work");
+            e.printStackTrace();
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "IOException: didn't work");
+            e.printStackTrace();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "open didn't work");
+            e.printStackTrace();
+            // counting valid bikes not needed
+
+        }
+    }
+
+    public void openGameFile() {
+        try {
+            ObjectInputStream is;
+            is = new ObjectInputStream(new FileInputStream("Games.dat"));
+            gameStock = (ArrayList<Game>) is.readObject(); // CHANGED
+            is.close();
+        } catch (FileNotFoundException e) {
+            JOptionPane.showMessageDialog(null, "FileNotFound: didn't work");
+            e.printStackTrace();
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(null, "IOException: didn't work");
+            e.printStackTrace();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "open didn't work");
+            e.printStackTrace();
+            // counting valid bikes not needed
+
+        }
 
 
+    }
+
+    public void RentGames() throws IOException {
+        ObjectOutputStream os;
+        os = new ObjectOutputStream(new FileOutputStream("RentedGames.dat"));
+        os.writeObject(rentedGames);
+        os.close();
+    }
+
+    public void rentMovie() throws IOException {
+        ObjectOutputStream os;
+        os = new ObjectOutputStream(new FileOutputStream("RentedMovies.dat"));
+        os.writeObject(rentedMovie);
+        os.close();
+    }
 }

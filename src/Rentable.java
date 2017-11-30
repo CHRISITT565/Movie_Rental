@@ -1,6 +1,6 @@
 public interface Rentable {
 
-    void setRentFee();
+    Double setRentFee();
 
     double calRentFee();
 }

@@ -98,7 +98,7 @@ public class Add extends JFrame implements ActionListener{
         Add myFrame = new Add();
 
         myFrame.setVisible(true);
-        //Buttons Created and defigned
+
 
 
     }
@@ -146,62 +146,75 @@ public class Add extends JFrame implements ActionListener{
 
 
         Movie m = new Movie();
-        m.setName(JOptionPane.showInputDialog(""));
-        m.setLength(Double.parseDouble(JOptionPane.showInputDialog("")));
-        m.setBonus(Boolean.parseBoolean(JOptionPane.showInputDialog("")));
-        m.setGenre(JOptionPane.showInputDialog(""));
-        m.setCondition(JOptionPane.showInputDialog(""));
-        m.setRating(JOptionPane.showInputDialog(""));
+        m.setName(JOptionPane.showInputDialog("Please enter a name of the Movie"));
+        m.setLength(Integer.parseInt(JOptionPane.showInputDialog("Please enter the length of the movie in minuets")));
+        m.setBonus(Boolean.parseBoolean(JOptionPane.showInputDialog("Does this Movie have Bonus Features ( Yes ,No)")));
+        m.setGenre(JOptionPane.showInputDialog("Please enter the genre of the movie e.g (Romance,Action.Horror, ect)"));
+        m.setCondition(JOptionPane.showInputDialog("Please enter the condition of the Disk (good ,Ok or Bad)"));
+        m.setRating(JOptionPane.showInputDialog("Please rate the movie"));
         m.setTimesRented(0);
         m.setRentFee();
 
         //return JOptionPane.showMessageDialog(null,m.toString());
         //return m.toString();
+        if(m.getCondition().equals("Bad"))
+        {
+            JOptionPane.showMessageDialog(null,"This Disk cannot be taken as the condition is not up to our standards");
+        }
 
-        movieStock.add(m);
+        else {
 
-        try{
-            saveMovie();
-            JOptionPane.showMessageDialog(null,"Data saved successfully");
-        } // try
-        catch (IOException f){
-            JOptionPane.showMessageDialog(null,"Not able to save the file:\n"+
-                    "Check the console printout for clues to why ");
-            f.printStackTrace();
-        }// catch
+
+            movieStock.add(m);
+
+            try {
+                saveMovie();
+                JOptionPane.showMessageDialog(null, "Data saved successfully");
+            } // try
+            catch (IOException f) {
+                JOptionPane.showMessageDialog(null, "Not able to save the file:\n" +
+                        "Check the console printout for clues to why ");
+                f.printStackTrace();
+            }// catch
+        }
     }
 
 
-    public void VideoGameMaker(){
-       Game g = new Game();
-        g.setName(JOptionPane.showInputDialog(""));
-        g.setSetting(JOptionPane.showInputDialog(""));
-        g.setStyle(JOptionPane.showInputDialog(""));
-        g.setGenre(JOptionPane.showInputDialog(""));
-        g.setCondition(JOptionPane.showInputDialog(""));
-        g.setRating(JOptionPane.showInputDialog(""));
+    public void VideoGameMaker() {
+        Game g = new Game();
+        g.setName(JOptionPane.showInputDialog("Please enter the name of the Game"));
+        g.setSetting(JOptionPane.showInputDialog("Please enter the setting (Online, Offline"));
+        g.setStyle(JOptionPane.showInputDialog("RPG,FPS,Puzzle,Platform"));
+        g.setGenre(JOptionPane.showInputDialog("Please enter the Genre(Action,Adventure, Horror ect)"));
+        g.setCondition(JOptionPane.showInputDialog("Please enter the Disk Condition (good ,ok or Bad"));
+        g.setRating(JOptionPane.showInputDialog("Please rate the Game"));
         g.setTimesRented(0);
         g.setRentFee();
 
         //return JOptionPane.showMessageDialog(null,g.toString());
         //return g.toString();
 
-        gameStock.add(g);
+        if (g.getCondition().equals("Bad")) {
+            JOptionPane.showMessageDialog(null, "This Disk cannot be taken as the condition is not up to our standards");
+        } else {
+            gameStock.add(g);
 
-        try{
-            saveGames();
-            JOptionPane.showMessageDialog(null,"Data saved successfully");
-        } // try
-        catch (IOException f){
-            JOptionPane.showMessageDialog(null,"Not able to save the file:\n"+
-                    "Check the console printout for clues to why ");
-            f.printStackTrace();
-        }// catch
+            try {
+                saveGames();
+                JOptionPane.showMessageDialog(null, "Data saved successfully");
+            } // try
+            catch (IOException f) {
+                JOptionPane.showMessageDialog(null, "Not able to save the file:\n" +
+                        "Check the console printout for clues to why ");
+                f.printStackTrace();
+            }// catch
+        }
     }
+
 
     public void saveGames() throws IOException {
         ObjectOutputStream os;
-        os = new ObjectOutputStream(new FileOutputStream("Gmaes.dat"));
+        os = new ObjectOutputStream(new FileOutputStream("Games.dat"));
         os.writeObject(gameStock);
         os.close();
     }

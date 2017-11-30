@@ -62,7 +62,9 @@ public abstract class Disk implements Rentable{
     }
 
     public double calRentFee() {
-        return setRentFee() + noOfdays;
+        double price = setRentFee();
+        double fee = price * noOfdays;
+        return fee;
     }
 
     public  String toString()

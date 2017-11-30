@@ -1,11 +1,13 @@
-public class Movie extends Disk {
+import java.io.Serializable;
+
+public class Movie extends Disk implements Serializable {
 
     private String Name;
-    private Double Length;
+    private int Length;
     private Boolean Bonus;
 
 
-    public Movie(String name, Double length, Boolean bonus) {
+    public Movie(String name, int length, Boolean bonus) {
         Name = name;
         Length = length;
         Bonus = bonus;
@@ -13,7 +15,7 @@ public class Movie extends Disk {
 
     public Movie()
     {
-        this("null", 60.0, true);
+        this("null", 60, true);
     }
 
     public String getName() {
@@ -24,11 +26,11 @@ public class Movie extends Disk {
         Name = name;
     }
 
-    public Double getLength() {
+    public int getLength() {
         return Length;
     }
 
-    public void setLength(Double length) {
+    public void setLength(int length) {
         Length = length;
     }
 
@@ -42,11 +44,37 @@ public class Movie extends Disk {
 
     public String toString()
     {
-        return getName() + getGenre()+ getBonus() + super.toString();
+        return "Movie Title " + getName() +" The Genre is " +  getGenre()+" The length is "+ getLength() + "min Bounus Features" +  super.toString();
     }
 
     @Override
-    public void setRentFee() {
+    public Double setRentFee() {
+
+        double rent= 0.0f;
+
+        if(Length == 60)
+        {
+            rent = 4.00f;
+        }
+
+        else if (Length == 120)
+        {
+            rent = 6.00f;
+
+        }
+
+        else if (Length == 180)
+        {
+            rent = 7.00f;
+        }
+
+        else if(Length == 95)
+        {
+            rent = 4.50f;
+        }
+
+
+        return rent;
 
 
 
