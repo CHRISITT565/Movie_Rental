@@ -9,9 +9,11 @@ public class Rent extends JFrame implements ActionListener{
 
     ArrayList<Game> gameStock;
     ArrayList<Movie> movieStock;
-    ArrayList<Movie> rentedMovie;
-    ArrayList<Game> rentedGames;
+    ArrayList<Disk> rented;
+    ArrayList<Disk> popular;
     JComboBox Stock = new JComboBox();
+
+
 
 
     public Rent() {
@@ -54,12 +56,22 @@ public class Rent extends JFrame implements ActionListener{
         JButton gameRent = new JButton("Video Game");
         JButton movieRent= new JButton("Movie");
 
+        JButton RentDisk= new JButton("rent");
+
         gameRent.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
 
                 openGameFile();
-                Stock.setModel(new DefaultComboBoxModel(gameStock.toArray()));
+                System.out.println(gameStock.size());
+                String[] allGameNames = new String[gameStock.size()];
+
+                for(int i=0;i<gameStock.size();i++)
+                    allGameNames[i] = gameStock.get(i).getName();
+
+
+                Stock.setModel(new DefaultComboBoxModel(allGameNames));
+
             }
         });
         movieRent.addActionListener(new ActionListener() {
@@ -72,6 +84,18 @@ public class Rent extends JFrame implements ActionListener{
             }
         });
 
+        rent.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+                DaysRented();
+                UpdateData();
+
+                RentStock();
+
+            }
+        });
+
 
         gameRent.setBounds(200,200,80,50);
 
@@ -80,13 +104,26 @@ public class Rent extends JFrame implements ActionListener{
         cPane.add(gameRent);
         cPane.add(movieRent);
 
-
-
-        Stock.setLocation(200,300);
+        Stock.setLocation(300,400);
 
         Stock.setSize(200,50);
 
         cPane.add(Stock);
+
+
+
+        Stock.addItemListener(new ItemListener() {
+            @Override
+            public void itemStateChanged(ItemEvent e) {
+                if(e.getStateChange() == ItemEvent.SELECTED){
+                    JComboBox localCombo = (JComboBox)e.getSource();
+                   
+            }
+        }
+        });
+
+
+
 
         setResizable(false);
 
@@ -184,17 +221,32 @@ public class Rent extends JFrame implements ActionListener{
 
     }
 
-    public void RentGames() throws IOException {
+    public void RentStock() throws IOException {
         ObjectOutputStream os;
-        os = new ObjectOutputStream(new FileOutputStream("RentedGames.dat"));
-        os.writeObject(rentedGames);
+        os = new ObjectOutputStream(new FileOutputStream("RentedItems.dat"));
+        os.writeObject(rented);
         os.close();
     }
 
-    public void rentMovie() throws IOException {
-        ObjectOutputStream os;
-        os = new ObjectOutputStream(new FileOutputStream("RentedMovies.dat"));
-        os.writeObject(rentedMovie);
-        os.close();
+
+
+
+
+    public void DaysRented(){
+
+
     }
+
+
+    public void UpdateData(){
+
+
+    }
+
+    public void PopStock(){
+
+    }
+
+
+
 }
