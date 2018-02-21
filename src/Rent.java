@@ -153,18 +153,18 @@ public class Rent extends JFrame implements ActionListener{
 
         if(e.getActionCommand().equals("Home"))
         {
-            new MainFrame();
+            new MainFrame().setVisible(true);
 
         }
         else if(e.getActionCommand().equals("Add"))
         {
 
-            new Add();
+            new Add().setVisible(true);
         }
 
         else if(e.getActionCommand().equals("Rent"))
         {
-            new Rent();
+            new Rent().setVisible(true);
         }
         else if(e.getActionCommand().equals("Returns"))
         {
@@ -173,11 +173,11 @@ public class Rent extends JFrame implements ActionListener{
 
         else if(e.getActionCommand().equals("Popular"))
         {
-            new Popular();
+            new Popular().setVisible(true);
         }
         else if(e.getActionCommand().equals("Coming Soon"))
         {
-            new  CommingSoon();
+            new  ComingSoon().setVisible(true);
         }
 
         if(e.getActionCommand().equals("Exit"))
